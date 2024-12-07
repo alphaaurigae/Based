@@ -3,6 +3,8 @@
 
 #include <vector>
 
-void print_unicode(const std::vector<unsigned char>& decoded);
+void print_unicode(
+const std::vector<unsigned char>& decoded
+);
 
 #endif

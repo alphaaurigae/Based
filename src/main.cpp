@@ -28,7 +28,6 @@ int main(int argc, char** argv) {
         }
     }
 
-    // If both --hex and -d are provided ...
     if (is_hex && decode) {
         std::cerr << "Error: It is not possible to decode a hex string to base!.\n";
         std::cerr << "Remove the --hex or -d (decode) argument.\n";
@@ -38,10 +37,8 @@ int main(int argc, char** argv) {
     try {
         if (is_hex) {
             if (decode) {
-                // Hex decode logic
                 std::vector<unsigned char> decoded = hex_to_bytes(input);
                 std::cout << "Decoded Output (base58): " << encode_base58(decoded) << '\n';
-                // Print decoded as hex (normal)
                 std::cout << "Decoded Output (hex) default: ";
                 for (unsigned char byte : decoded) {
                     std::cout << std::hex << std::setfill('0') << std::setw(2)
@@ -49,12 +46,10 @@ int main(int argc, char** argv) {
                 }
                 std::cout << '\n';
             } else {
-                // Hex encode logic
                 std::vector<unsigned char> data = hex_to_bytes(input);
                 std::cout << "Encoded Output (Base58): " << encode_base58(data) << '\n';
             }
         } else {
-            // Base58 decoding or encoding
             if (decode) {
                 std::vector<unsigned char> decoded = decode_base58(input);
 

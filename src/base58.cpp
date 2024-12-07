@@ -11,7 +11,6 @@
 constexpr std::string_view BASE58_ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 constexpr int BASE58_ALPHABET_SIZE = BASE58_ALPHABET.size();
 
-// Lookup Table for Decoding
 constexpr auto CREATE_BASE58_LOOKUP_TABLE() {
     std::array<int, 256> lookup_table{};
     lookup_table.fill(-1);
@@ -29,7 +28,6 @@ std::string encode_base58(const std::vector<unsigned char>& data) {
     fmpz_init(value);
     fmpz_set_ui(value, 0);
 
-    // Convert the byte array to a big integer
     for (unsigned char byte : data) {
         fmpz_mul_ui(value, value, 256);
         fmpz_add_ui(value, value, byte);
@@ -62,7 +60,6 @@ std::vector<unsigned char> decode_base58(const std::string& encoded) {
     fmpz_init(value);
     fmpz_set_ui(value, 0);
 
-    // Validate input and build the big integer
     for (char c : encoded) {
         int index = BASE58_LOOKUP_TABLE[static_cast<unsigned char>(c)];
         if (index == -1) {
@@ -72,10 +69,8 @@ std::vector<unsigned char> decode_base58(const std::string& encoded) {
         fmpz_add_ui(value, value, index);
     }
 
-    // Count leading zeros
     int num_leading_zeros = std::ranges::count(encoded | std::views::take_while([](char c) { return c == BASE58_ALPHABET[0]; }), BASE58_ALPHABET[0]);
 
-    // Convert the big integer to a byte array
     std::vector<unsigned char> result;
     while (fmpz_cmp_ui(value, 0) > 0) {
         fmpz_t remainder;

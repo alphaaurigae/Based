@@ -6,7 +6,6 @@
 std::string handle_input(int argc, char** argv, bool& decode) {
     std::string input;
 
-    // Check for the -d flag for decoding
     for (int i = 1; i < argc; ++i) {
         if (std::string(argv[i]) == "-d") {
             decode = true;
@@ -27,7 +26,6 @@ std::string handle_input(int argc, char** argv, bool& decode) {
 
     std::cout << "Input received: [" << input << "]\n";
 
-    // If input is enclosed in quotes, remove the quotes
     bool quotes_removed = false;
     if (!input.empty() && ((input.front() == '"' && input.back() == '"') || (input.front() == '\'' && input.back() == '\''))) {
 
@@ -36,7 +34,6 @@ std::string handle_input(int argc, char** argv, bool& decode) {
         quotes_removed = true;
     }
 
-    // Print the modified input after removing quotes (if any)
     if (quotes_removed) {
         std::cout << "Modified Input (quotes removed): [" << input << "]\n";
     } else {

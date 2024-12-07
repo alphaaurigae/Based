@@ -3,6 +3,10 @@
 
 #include <string>
 
-std::string handle_input(int argc, char** argv, bool& decode);
+std::string handle_input(
+int argc,
+char** argv,
+bool& decode
+);
 
 #endif

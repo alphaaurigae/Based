@@ -1,4 +1,5 @@
 #include "menu.h"
+
 #include <iostream>
 #include <cstring>
 #include <unistd.h>
@@ -9,24 +10,13 @@ void show_menu(const char* program_name) {
               << "  " << program_name << " [options] <input>\n\n"
               << "Options:\n"
               << "  -h, --help      Show this help message and exit.\n"
-              << "  -d              Decode Base58 input.\n\n"
-              << "Description:\n"
-              << "  By default, the program encodes the input to Base58.\n"
-              << "  Use the -d option to decode Base58 back to raw bytes.\n"
-              << "  Input can be provided as an argument or through a pipe.\n\n"
-              << "Examples:\n"
-              << "  Encoding from stdin (pipe):\n"
-              << "    echo 'hello' | " << program_name << "\n"
-              << "  Encoding from argument:\n"
-              << "    " << program_name << " 'hello'\n\n"
-              << "  Decoding from stdin (pipe):\n"
-              << "    echo 'Cn8eVZg' | " << program_name << " -d\n"
-              << "  Decoding from argument:\n"
-              << "    " << program_name << " -d 'Cn8eVZg'\n\n"
-              << "Behavior:\n"
-              << "  - Decoding output includes hex (default and compact) and Unicode representations.\n\n"
-              << "Note:\n"
-              << "  Ensure your input for decoding is valid Base58-encoded data.\n";
+              << "  -d              Decode Base58 input.\n"
+              << "  --hex           Handle input as hex E.g 68656c6c6f == Cn8eVZg \n\n"
+              << "  E.g \n"
+              << "  $ bin/based_encode-decode 'Cn8eVZg'\n"
+              << "  $ bin/based_encode-decode --hex '68656c6c6f'\n"
+              << "  $ bin/based_encode-decode -d  'Cn8eVZg'\n"
+              << "  Ensure your input for decoding is valid Base58-encoded data.\n\n";
     exit(0);
 }
 

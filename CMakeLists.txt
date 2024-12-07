@@ -1,8 +1,8 @@
 
 cmake_minimum_required(VERSION 3.28.3)
 
-set(MY_PROJECT_NAME "base_encode_decode")
-set(MY_PROJECT_BIN_NAME "base_encode_decode")
+set(MY_PROJECT_NAME "based_encode-decode")
+set(MY_PROJECT_BIN_NAME "based_encode-decode")
 set(MY_PROJECT_VERSION "888.0")
 
 project(${MY_PROJECT_BIN_NAME} VERSION ${MY_PROJECT_VERSION} LANGUAGES CXX)
@@ -11,7 +11,6 @@ project(${MY_PROJECT_BIN_NAME} VERSION ${MY_PROJECT_VERSION} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# > 11
 find_program(CXX_COMPILER NAMES g++-11 g++-12 g++-13 g++-14 PATHS /usr/bin /usr/local/bin)
 
 if(NOT CXX_COMPILER)
@@ -86,7 +85,6 @@ if(ENABLE_WARNINGS_AS_ERRORS)
 endif()
 
 
-# Clang-tidy (easily complains, leave off unless needed)
 option(ENABLE_CLANG_TIDY "Run clang-tidy during compilation" OFF)
 if(ENABLE_CLANG_TIDY)
     find_program(CLANG_TIDY_EXE NAMES clang-tidy)

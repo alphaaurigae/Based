@@ -2,67 +2,83 @@
 
 - Supported: Base 58
 
-## Todo
-.... add more base options , beautify code, formatting and sec etc ...
+
+## BUILD
+
+- Build OS: "Ubuntu 24.04"
+
+... cmake ...
+
+- ```./build_cmake.sh``` - build
+- ```./clean_cmake.sh``` - tidy build
+
+
+## Deps
+```
+libflint-dev - https://github.com/flintlib/flint
+```
+
 
 ## RUN
+```
+$ '/home/mmmm/Desktop/Based/test.sh' 
+
+Test w.o arg
+Usage:
+  bin/based_encode-decode [options] <input>
+
+Options:
+  -h, --help      Show this help message and exit.
+  -d              Decode Base58 input.
+  --hex           Handle input as hex E.g 68656c6c6f == Cn8eVZg 
+
+  E.g 
+  $ bin/based_encode-decode 'Cn8eVZg'
+  $ bin/based_encode-decode --hex '68656c6c6f'
+  $ bin/based_encode-decode -d  'Cn8eVZg'
+  Ensure your input for decoding is valid Base58-encoded data.
+
+
 
 ```
-$ bin/b58_decode_encode   -d '68656c6c6f'
+
+```
+$ bin/based_encode-decode -d '68656c6c6f'
 Input received: [68656c6c6f]
 No quotes to remove. Modified Input: [68656c6c6f]
 Decoded Output (hex) default: 87 2a 92 a3 09 1b cc 
 Decoded Output (hex) compact: 872a92a3091bcc
-Decoded Output (Unicode): �*��	
+Decoded Output (Unicode Symbols): �*��	
 ```
 ```
-$ bin/b58_decode_encode   --hex '68656c6c6f'
+$ bin/based_encode-decode --hex '68656c6c6f'
 Input received: [68656c6c6f]
 No quotes to remove. Modified Input: [68656c6c6f]
 Encoded Output (Base58): Cn8eVZg
 ```
 ```
-$ bin/b58_decode_encode   --hex 'Cn8eVZg'
+$ bin/based_encode-decode --hex 'Cn8eVZg'
 Input received: [Cn8eVZg]
 No quotes to remove. Modified Input: [Cn8eVZg]
 Error: Hex string has an odd number of characters
+
 ```
 ```
-$ bin/b58_decode_encode   'Cn8eVZg'
-Input received: [Cn8eVZg]
-No quotes to remove. Modified Input: [Cn8eVZg]
-Encoding Input: Cn8eVZg
-Encoded Output: 3ZD5jHsk6i
-```
-```
-$ bin/b58_decode_encode -d  'Cn8eVZg'
+$ bin/based_encode-decode -d  'Cn8eVZg'
 Input received: [Cn8eVZg]
 No quotes to remove. Modified Input: [Cn8eVZg]
 Decoded Output (hex) default: 68 65 6c 6c 6f 
 Decoded Output (hex) compact: 68656c6c6f
-Decoded Output (Unicode): hello
+Decoded Output (Unicode Symbols): hello
 ```
 ```
-$ bin/b58_decode_encode 'hello'
+$ bin/based_encode-decode hello
 Input received: [hello]
 No quotes to remove. Modified Input: [hello]
 Encoding Input: hello
 Encoded Output: Cn8eVZg
 ```
-```
-$ bin/b58_decode_encode   '68656c6c6f'
-Input received: [68656c6c6f]
-No quotes to remove. Modified Input: [68656c6c6f]
-Encoding Input: 68656c6c6f
-Encoded Output: 43gGFuQUh3Kpxd
-```
 
+## Todo
 
-## BUILD
-
-Dev OS Ubuntu 24.04
-
-... cmake ...
-
-`./clean_cmake.sh`
-`./build_cmake.sh`
+.... add more base options , beautify code, formatting and sec etc ...
