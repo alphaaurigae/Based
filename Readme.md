@@ -3,7 +3,7 @@
 - Supported: Base 58
 
 
-## BUILD
+## Build
 
 - Build OS: "Ubuntu 24.04"
 
