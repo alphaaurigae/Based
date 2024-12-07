@@ -19,7 +19,7 @@ libflint-dev - https://github.com/flintlib/flint
 ```
 
 
-## RUN
+## Run
 ```
 $ '/home/mmmm/Desktop/Based/test.sh' 
 
